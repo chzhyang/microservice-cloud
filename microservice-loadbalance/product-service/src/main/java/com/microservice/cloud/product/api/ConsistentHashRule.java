@@ -1,11 +1,18 @@
 package com.microservice.cloud.product.api;
 
+import com.netflix.loadbalancer.AbstractLoadBalancerRule;
+import com.netflix.client.config.IClientConfig;
+import com.netflix.loadbalancer.BaseLoadBalancer;
+import com.netflix.loadbalancer.ILoadBalancer;
+import com.netflix.loadbalancer.Server;
+import sun.security.jca.GetInstance;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-public class ConsistentHash {
+public class ConsistentHashRule extends AbstractLoadBalancerRule {
     /**
      * 服务器列表,一共有3台服务器提供服务, 将根据性能分配虚拟节点
      */
@@ -92,4 +99,38 @@ public class ConsistentHash {
         hash += hash << 5;
         return hash < 0 ? Math.abs(hash) : hash;
     }
+    //获取server
+    private Server choose(ILoadBalancer lb, Object key) {
+        if (lb == null) {
+            return null;
+        }
+        Server server = null;
+
+        try {
+            BaseLoadBalancer loadBalancer = (BaseLoadBalancer)this.getLoadBalancer();
+            //log.info("loadBalancer={}",loadBalancer);
+            //想要请求的微服务名称
+            String name = loadBalancer.getName();
+            //拿到服务发现api
+
+            //选择一个实例
+            GetInstance.Instance instance =
+
+            return new server;
+        } catch () {
+            //log.error("Nacos client自动通过基于权重的负载均衡算法，选择微服务实例异常,e={}",e);
+            return null;
+        }
+    }
+
+    @Override
+    public Server choose(Object key) {
+        return choose(getLoadBalancer(), key);
+    }
+
+    @Override
+    public void initWithNiwsConfig(IClientConfig arg0) {
+    }
+
+
 }

@@ -96,7 +96,7 @@ public class ProductEndpoint {
             newRule = "com.netflix.loadbalancer.RandomRule";
             this.logger.debug("####rule changed to : {}", "random");
         }else if(lbRule==3) {//todo 手动实现一致性hash
-            newRule = "com.netflix.loadbalancer.ConsistentHashRule";
+            newRule = "com.microservice.cloud.product.api.ConsistentHashRule";
             this.logger.debug("####rule changed to : {}", "hash");
         }
         RibbonConfig.ruleClassName = newRule;
