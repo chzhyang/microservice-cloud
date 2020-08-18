@@ -24,24 +24,21 @@ ZipKin并不是Spring Cloud下的一个子项目，开源地址为https://github
 
 4. 本次调用中所调用的微服务列表及被调用次数
 
-![截屏2020-08-16 16.20.30](README.assets/PNxUhifSmFayWOA.png)
-
+![截屏2020-08-16 16.20.30](https://i.loli.net/2020/08/16/PNxUhifSmFayWOA.png)
 
 
 本次调用拆分的Span列表，以及每一个Span相应的耗时和相应请求的服务地址
 
-![截屏2020-08-16 16.21.15](README.assets/4FQdmU3OuyHYbZ6.png)
+![截屏2020-08-16 16.21.15](https://i.loli.net/2020/08/16/4FQdmU3OuyHYbZ6.png)
 
 每个span的详细情况
-
-![截屏2020-08-16 16.23.04](README.assets/1pod7iwM8FWf5y2.png)
-
+![截屏2020-08-16 16.23.04](https://i.loli.net/2020/08/16/1pod7iwM8FWf5y2.png)
 
 
 通过Dependencies标签查看服务请求中各微服务之间的依赖关系
 
-![截屏2020-08-16 16.27.40](README.assets/35lA8riZmSUHpOY.png)
+![截屏2020-08-16 16.27.40](https://i.loli.net/2020/08/16/35lA8riZmSUHpOY.png)
 
 当调用异常并且没有捕获时，Zipkin就会自动将本次调用标记为红色
 
-![截屏2020-08-16 16.29.39](README.assets/bNsgpALQRdH9yZf.png)
+![截屏2020-08-16 16.29.39](https://i.loli.net/2020/08/16/bNsgpALQRdH9yZf.png)
